@@ -18,8 +18,8 @@ body { margin: 0; padding: 0; }
 <div id="map"></div>
 <script>
 
-const transformRequest = (url, resourceType) => {
-      const isMapboxRequest =
+var transformRequest = (url, resourceType) => {
+      var isMapboxRequest =
         url.slice(8, 22) === "api.mapbox.com" ||
         url.slice(10, 26) === "tiles.mapbox.com";
       return {
@@ -29,16 +29,16 @@ const transformRequest = (url, resourceType) => {
       };
     };
 	
-	mapboxgl.accessToken = 'pk.eyJ1IjoidG9tYXNlZmZ1c2lvbiIsImEiOiJjbTZ6OGQ5cmwwMnRvMmtxd3h5YThxcGltIn0.prwfd-1bHy8os5skQ43iBQ';
+    mapboxgl.accessToken = 'pk.eyJ1IjoidG9tYXNlZmZ1c2lvbiIsImEiOiJjbTZ6OGQ5cmwwMnRvMmtxd3h5YThxcGltIn0.prwfd-1bHy8os5skQ43iBQ';
     const map = new mapboxgl.Map({
         container: 'map', // container ID
 	style: 'mapbox://styles/tomaseffusion/cm6z8l3hr01dt01qrfi79g7w7',
         center: [-1.73, 53.5], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-      zoom: 10,// starting zoom
-      transformRequest: transformRequest
+        zoom: 10,// starting zoom
+        transformRequest: transformRequest
     });
 
-	map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.NavigationControl());
 
  $(document).ready(function () {
       $.ajax({
@@ -82,7 +82,7 @@ const transformRequest = (url, resourceType) => {
               //set popup text
               //You can adjust the values of the popup to match the headers of your CSV.
               // For example: e.features[0].properties.Name is retrieving information from the field Name in the original CSV.
-              var description = `<h3>` + e.features[0].properties.Book Shop Name + `</h3>`;
+              var description = `<h3>` + e.features[0].properties.BookShopName + `</h3>`;
 
               // Ensure that if the map is zoomed out such that multiple
               // copies of the feature are visible, the popup appears
