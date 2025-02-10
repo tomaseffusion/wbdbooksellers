@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a map on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZWZmdXNpb24tYWJhIiwiYSI6ImNrb3gwYW9lMjAwOHIybnFuOG8xdmxsdHIifQ.xUFkH2oQS0Y2PZ4r94gXhw';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        center: [-1.73, 53.5], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+
+  map.on('load', () => {
+        map.addSource('booksellers', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: 'https://drive.google.com/file/d/1lkbIA0pZdDj_BTX8nnUGksQ_pro0pNx9/view?usp=drive_link'
+        });
+
+    map.addLayer({
+            'id': 'booksellers-layer',
+            'type': 'circle',
+            'source': 'booksellers',
+            'paint': {
+                'circle-radius': 4,
+                'circle-stroke-width': 2,
+                'circle-color': 'blue',
+                'circle-stroke-color': 'white'
+            }
+        });
+</script>
+
+</body>
+</html>
