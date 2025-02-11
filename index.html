@@ -44,7 +44,7 @@ var transformRequest = (url, resourceType) => {
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1HntnL3WlYtwz3AfONK23wnz2daFxm8y7BNi1wG3GQ7k/gviz/tq?tqx=out:csv&sheet=log',
+        url: 'https://docs.google.com/spreadsheets/d/1o6eH9FVewo4abE8sqGf-dSHm_6VOPLtW_TAOd6cUI4w/gviz/tq?tqx=out:csv&sheet=master',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
