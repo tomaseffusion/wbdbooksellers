@@ -30,7 +30,7 @@ var transformRequest = (url, resourceType) => {
     };
 	
     mapboxgl.accessToken = 'pk.eyJ1IjoidG9tYXNlZmZ1c2lvbiIsImEiOiJjbTZ6OGQ5cmwwMnRvMmtxd3h5YThxcGltIn0.prwfd-1bHy8os5skQ43iBQ';
-    const map = new mapboxgl.Map({
+    var map = new mapboxgl.Map({
         container: 'map', // container ID
 	style: 'mapbox://styles/tomaseffusion/cm6z8l3hr01dt01qrfi79g7w7',
         center: [-1.73, 53.5], // starting position [lng, lat]. Note that lat must be set between -90 and 90
